@@ -23,6 +23,7 @@ variable "private_subnets" {
 variable "allowed_ssh_ip" {
   description = "IP address allowed for SSH access"
   type        = string
+  default     = "0.0.0.0/0"
 }
 
 variable "public_instance_type" {
