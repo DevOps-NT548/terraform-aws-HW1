@@ -17,8 +17,8 @@ module "ec2" {
   vpc_id                = module.vpc.vpc_id
   public_subnet_id      = module.vpc.public_subnet_id
   private_subnet_id     = module.vpc.private_subnet_id
-  public_instance_ami   = "ami-032346ab877c418af"
-  private_instance_ami  = "ami-0f59d29a0ef46a444"
-  public_instance_type  = "m5.large"
+  public_instance_ami   = "ami-0866a3c8686eaeeba"
+  private_instance_ami  = "ami-0308e20a60524c7c2"
+  public_instance_type  = "t2.micro"
   private_instance_type = "t2.micro"
 }
