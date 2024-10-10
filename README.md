@@ -12,6 +12,7 @@
 - [ Giới thiệu môn học](#gioithieumonhoc)
 - [ Giảng viên hướng dẫn](#giangvien)
 - [ Thành viên nhóm](#thanhvien)
+- [ Hướng dẫn chạy](#huongdan)
 
 ## GIỚI THIỆU MÔN HỌC
 
@@ -37,21 +38,18 @@
 | 3 | 22520864 | Làu Trường Minh |[LiuChangMinh88](https://github.com/LiuChangMing88) |22520864@gm.uit.edu.vn |
 
 ## HƯỚNG DẪN CHẠY
-
-### Dành cho windows:
-
-- Để chạy terraform server trên windows, ta cần quyền truy cập vào server AWS.
+<a name="huongdan"></a>
+- Để chạy terraform ta cần quyền truy cập vào server AWS.
 - Để tạo instance trong public và private subnet, ta cần ami_id của instance tương ứng.
 
 #### Ta thực hiện các bước sau:
 
-#### 1. Lấy quyền AWS bằng key:
-
-- Ta nhập vào terminal những dòng lệnh này để truy cập vào AWS:
+#### 1. Cấu hình AWS credentials key:
 
 ```
-$env:AWS_ACCESS_KEY_ID="AKIAU6GD2B5FGSTSMFK6"
-$env:AWS_SECRET_ACCESS_KEY="<your-secret-access-key>"
+[default]
+aws_access_key_id=<your-key>
+aws_secret_access_key=<your-key>
 ```
 
 #### 2. Lấy public/private amd_id từ server AWS:
