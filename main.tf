@@ -16,18 +16,18 @@ module "vpc" {
 module "nat_gateway" {
   source = "./modules/nat_gateway"
 
-  public_subnet_id  = module.vpc.public_subnet_ids[0] # Attach NAT Gateway to the first public subnet
+  public_subnet_id = module.vpc.public_subnet_ids[0] # Attach NAT Gateway to the first public subnet
 }
 
 # Route Tables Module
 module "route_tables" {
   source = "./modules/route_tables"
 
-  vpc_id            = module.vpc.vpc_id
-  public_subnet_ids = module.vpc.public_subnet_ids    # Pass the public subnet IDs
-  private_subnet_ids = module.vpc.private_subnet_ids  # Pass the private subnet IDs
+  vpc_id             = module.vpc.vpc_id
+  public_subnet_ids  = module.vpc.public_subnet_ids  # Pass the public subnet IDs
+  private_subnet_ids = module.vpc.private_subnet_ids # Pass the private subnet IDs
 
-  internet_gateway_id = module.vpc.internet_gateway_id  # Use the Internet Gateway from the VPC module
+  internet_gateway_id = module.vpc.internet_gateway_id    # Use the Internet Gateway from the VPC module
   nat_gateway_id      = module.nat_gateway.nat_gateway_id # Use NAT Gateway ID from NAT Gateway module
 }
 
@@ -35,10 +35,10 @@ module "route_tables" {
 module "ec2" {
   source = "./modules/ec2"
 
-  public_instance_ami   = "ami-0d110d4aaf0d1433b"   # AMI for public instance
-  private_instance_ami  = "ami-0dda592dcf418865d"   # AMI for private instance
-  public_instance_type  = "t2.micro"               # Instance type for public instance
-  private_instance_type = "t2.micro"               # Instance type for private instance
+  public_instance_ami   = "ami-0d110d4aaf0d1433b"          # AMI for public instance
+  private_instance_ami  = "ami-0dda592dcf418865d"          # AMI for private instance
+  public_instance_type  = "t2.micro"                       # Instance type for public instance
+  private_instance_type = "t2.micro"                       # Instance type for private instance
   public_subnet_id      = module.vpc.public_subnet_ids[0]  # Use first public subnet
   private_subnet_id     = module.vpc.private_subnet_ids[0] # Use first private subnet
   key_pair              = "my-ec2-key"
